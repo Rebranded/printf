@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdarg.h>
 /**
  * _printf - function that produce output according to a format.
  * @format: format parameter to check.
@@ -8,14 +7,15 @@
  */
 int _printf(const char *format, ...)
 {
-	int b = 0;
-	int value = 0;
-	int value1 = 0;
-
+	int b = 0, value = 0, value1 = 0;
 	va_list user_input;
 
 	va_start(user_input, format);
 
+	if (format == NULL)
+	{
+		return (-1);
+	}
 	while (format && format[b])
 	{
 		if (format[b] != '%')
@@ -29,9 +29,15 @@ int _printf(const char *format, ...)
 		}
 		else if (format[b + 1] == 's')
 		{
-			value1 = my_puts(va_arg(user_input, char *));
+			value1 = my_print(va_arg(user_input, char *));
 			value = value + (value1 - 1);
 			b++;
+		}
+		else if (format[b + 1] == '%')
+		{
+			_putchar('%');
+			b++;
+			value = value - 1;
 		}
 		value += 1;
 		b++;
