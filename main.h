@@ -1,5 +1,6 @@
-#ifndef  “HEADER_FILE”
-#define “HEADER_FILE”
+#ifndef  HEADER_FILE
+#define  HEADER_FILE
+
 int _putchar(int c);
 int _printf(const char *format, ...);
 int my_puts(const char *str);
