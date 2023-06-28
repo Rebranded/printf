@@ -1,4 +1,5 @@
 #include <unistd.h>
+
 #ifndef  HEADER_FILE
 
 #define  HEADER_FILE
@@ -8,5 +9,6 @@
 int _putchar(char c);
 int _printf(const char *format, ...);
 int my_print(const char *str);
+
 #endif /* user defined header */
 
