@@ -6,7 +6,7 @@
  * @buffer: buffer for local variables
  * @buff_index: buffer index
  */
-int print_char(va_list user_inputi, char *buffer, int buff_index)
+int print_char(va_list user_input, char *buffer, int buff_index)
 {
 	char c;
 

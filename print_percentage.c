@@ -8,7 +8,11 @@
  */
 int print_percentage(va_list user_input, char *buffer, int buff_index)
 {
-	char c = '%';
+	char c;
+
+	UNUSED(user_input);
+
+	c = '%';
 
 	if (buff_index >= 1023)
 	{

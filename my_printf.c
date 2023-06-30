@@ -7,7 +7,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int count = 0, value = 0,  buff_index;
+	int count = 0, value = 0,  buff_index = 0;
 	char buffer[1024];
 
 	va_list user_input;
@@ -22,7 +22,7 @@ int _printf(const char *format, ...)
 		if (*format != '%')
 		{
 			buffer[buff_index++] = *format;
-			if (buffer_index >= 1023)
+			if (buff_index >= 1023)
 			{
 				write(1, buffer, buff_index);
 				buff_index = 0;

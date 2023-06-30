@@ -6,7 +6,7 @@
  * @buff_index: buffer index
  * Return: return the number of charcter
  */
-int print_int(va_list user_input, char *buffer, int buff_index)
+int print_int(va_list (user_input), char *buffer, int buff_index)
 {
 	int num = va_arg(user_input, int);
 	char temp[12];
@@ -17,7 +17,7 @@ int print_int(va_list user_input, char *buffer, int buff_index)
 	if (buff_index + len >= 1023)
 	{
 		write(1, buffer, buff_index);
-		buff_inde = 0;
+		buff_index = 0;
 	}
 	memcpy(buffer + buff_index, temp, len);
 	buff_index += len;
