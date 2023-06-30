@@ -10,6 +10,7 @@
 int print_with_format(const char *format, va_list user_input,
 char *buffer, int buff_index)
 {
+<<<<<<< HEAD
 	int i, count = 0, prev_index = 0;
 
 	formathandler fmt[] = {
