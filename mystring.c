@@ -9,7 +9,7 @@
 
 int print_string(va_list user_input, char *buffer, int buff_index)
 {
-	int len = 0, i = 0;
+	int len = 0;
 	char *str;
 
 	str = va_arg(user_input, char *);

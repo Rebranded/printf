@@ -10,21 +10,21 @@
 int print_with_format(const char *format, va_list user_input,
 char *buffer, int buff_index)
 {
-	int i, value = 0, count = 0;
+	int i, count = 0, prev_index = 0;
 
-	FormatHandler fmt[] = {
-		{'c', print_char}, {'s', print_string}, {'%', print_percentage};
-		{'d', print_int}, {'i', print_int}, {'\0', NULL};
-	} ;
+	formathandler fmt[] = {
+		{'c', print_char}, {'s', print_string}, {'%', print_percentage},
+		{'d', print_int}, {'i', print_int}, {'\0', NULL}
+	};
 
 
 	for  (i = 0;  fmt[i].specifier != '\0';  i++)
 	{
 		if (fmt[i].specifier == *format)
 		{
-			buff_index = fmt[i].print_fucn(user_input, buffer, buff_index);
-			count += buff_index;
-			break;
+			prev_index = buff_index;
+			buff_index = fmt[i].print_func(user_input, buffer, buff_index);
+			count += buff_index - prev_index;
 		}
 	}
 
