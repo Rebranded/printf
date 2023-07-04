@@ -1,33 +1,28 @@
 #ifndef HEADER_FILE
 #define HEADER_FILE
-
-#include <stdio.h>
 #include <unistd.h>
 #include <stdarg.h>
-#include <stddef.h>
-#define UNUSED(x) (void)(x)
-#define BUFF_SIZE 1024
+#define UNUSED(x) void(x)
 #include <string.h>
-/**
- * struct new - structure that take a format and points
- * a function.
- * formathandler - new structure of the same definition
- * @print_func: function to points to per format
- * @specifier: format specifier
- */
-typedef struct new
-{
-	char specifier;
-	int (*print_func)(va_list, char *, int buff_index);
-} formathandler;
+#include <stddef.h>
+#include <stdio.h>
 
-int _printf(const char *format, ...);
-int print_string(va_list user_input, char *buffer, int buff_index);
+/****write functions***/
 int _putchar(char c);
-int print_char(va_list user_input, char *buffer, int buff_index);
-int print_int(va_list user_input, char *buffer, int buff_index);
-int print_with_format(const char *format, va_list user_input,
-char *buffer, int buff_index);
-int print_percentage(va_list user_input, char *buffer, int buff_index);
-#endif /* user defined header */
-
+int print_with_format(const char *format, va_list user);
+int _printf(const char *format, ...);
+int print_char(va_list user);
+int print_string(va_list user);
+int print_percentage(va_list user __attribute__((unused)));
+/**
+ * struct print_format - struct operations
+ * fm_t - struct operation
+ * @fm: character format specifier
+ * @fn: function to be returned
+ */
+typedef struct print_format
+{
+	char fm;
+	int (*fn)(va_list user);
+} fm_t;
+#endif

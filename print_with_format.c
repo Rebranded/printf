@@ -1,33 +1,28 @@
 #include "main.h"
 /**
- * print_with_format - function that initialize a struct
- * @format: format to be printed
- * @user_input: va_list
- * @buffer: buffer to store local variable
- * @buff_index: buffer index
- * Return: return count
+ * print_with_format - function that returns a function
+ * based on format
+ * @format: format specifier
+ * @user: list of arguments
+ * Return: return funtion to be printed
  */
-int print_with_format(const char *format, va_list user_input,
-char *buffer, int buff_index)
+int print_with_format(const char *format, va_list user)
 {
-	int i, count = 0, prev_index = 0;
+	int i = 0, count = 0;
 
-	formathandler fmt[] = {
-		{'c', print_char}, {'s', print_string}, {'%', print_percentage},
-		{'d', print_int}, {'i', print_int}, {'\0', NULL}
+	fm_t fm_types[] = {
+		{'c', print_char}, {'s', print_string},
+		{'%', print_percentage}, {'\0', NULL}
 	};
 
+	if (*format == '\0')
+		return (-1);
 
-	for  (i = 0;  fmt[i].specifier != '\0';  i++)
+	for (i = 0; fm_types[i].fm != '\0'; i++)
 	{
-		if (fmt[i].specifier == *format)
-		{
-			prev_index = buff_index;
-			buff_index = fmt[i].print_func(user_input, buffer, buff_index);
-			count += buff_index - prev_index;
+		if (fm_types[i].fm == *format)
+			count += (fm_types[i].fn(user));
 		}
-	}
 
 	return (count);
 }
-
