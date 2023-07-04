@@ -15,6 +15,7 @@ int print_int(va_list user)
 	{
 		_putchar('-');
 		num = -num;
+		count++;
 	}
 
 	while (num > 0)
