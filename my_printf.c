@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 			value = print_with_format(&format[i], user);
 			if (value == -1)
 				return (-1);
-			count += (value - 1);
+			count = count + value;
 			}
 		}
 

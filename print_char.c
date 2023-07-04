@@ -6,7 +6,7 @@
  */
 int print_char(va_list user)
 {
-	char c = va_arg(user, int);
+	int c = va_arg(user, int);
 
 	_putchar(c);
 
