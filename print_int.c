@@ -17,7 +17,12 @@ int print_int(va_list user)
 		num = -num;
 		count++;
 	}
-
+	else if (num == 0)
+	{
+		_putchar ('0');
+		count++;
+		return (count);
+	}
 	while (num > 0)
 	{
 		my_digit = num % 10;
