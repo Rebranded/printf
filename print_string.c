@@ -7,19 +7,18 @@
 int print_string(va_list user)
 {
 	char *str = va_arg(user, char *);
-	int count = 0, i = 0;
+	int i;
+	int len = strlen(str);
 
 	if (str == NULL)
 	{
 		str = "(nil)";
 	}
-	while (str[i] != '\0')
+	for (i = 0; i < len; i++)
 	{
 		_putchar (str[i]);
-		count++;
-		i++;
 	}
 
-	return (count);
+	return (len);
 }
 
