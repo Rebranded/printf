@@ -26,10 +26,8 @@ int _printf(const char *format, ...)
 			if (value == -1)
 				return (-1);
 			count = count + value;
-			}
 		}
-
-		_putchar(format[i]);
+	}
 		va_end(user);
 
 	return (count);
