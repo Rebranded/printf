@@ -29,7 +29,6 @@ int _printf(const char *format, ...)
 			}
 		}
 
-		_putchar(format[i]);
 		va_end(user);
 
 	return (count);
