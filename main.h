@@ -19,7 +19,7 @@ int print_string(va_list user);
 int print_percentage(va_list user __attribute__((unused)));
 int print_int(va_list user);
 int print_binary(va_list user);
-
+int print_unsigned(va_list user);
 /**
  * struct print_format - struct operations
  * fm_t - struct operation
