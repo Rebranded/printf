@@ -26,9 +26,8 @@ int _printf(const char *format, ...)
 			if (value == -1)
 				return (-1);
 			count = count + value;
-			}
 		}
-
+	}
 		va_end(user);
 
 	return (count);
