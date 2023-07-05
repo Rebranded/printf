@@ -13,7 +13,7 @@ int print_with_format(const char *format, va_list user)
 	fm_t fm_types[] = {
 		{'c', print_char}, {'s', print_string},
 		{'%', print_percentage}, {'d', print_int},
-		{'i', print_int},
+		{'i', print_int}, {'b', print_binary},
 		{'\0', NULL}
 	};
 
