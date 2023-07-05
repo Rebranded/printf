@@ -6,6 +6,8 @@
 #include <string.h>
 #include <stddef.h>
 #include <stdio.h>
+#include <limits.h>
+#include <stdlib.h>
 
 /****write functions***/
 int _putchar(char c);
@@ -15,6 +17,7 @@ int print_char(va_list user);
 int print_string(va_list user);
 int print_percentage(va_list user __attribute__((unused)));
 int print_int(va_list user);
+int reverse_int(int num);
 /**
  * struct print_format - struct operations
  * fm_t - struct operation

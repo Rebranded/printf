@@ -7,34 +7,40 @@
  */
 int print_int(va_list user)
 {
-	int reversed = 0, digit = 0, count = 0;
-	int my_digit = 0;
-	int num = va_arg(user, int);
+	char buffer[12];
+	int index = 0, count = 0;
 
-	if (num < 0)
+	int n = va_arg(user, int);
+
+	if (n == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+	if (n == INT_MIN)
+	{
+		buffer[index++] = '8';
+		n /= 10;
+		count++;
+	}
+	if (n < 0)
 	{
 		_putchar('-');
-		num = -num;
+		n = -n;
 		count++;
 	}
-	else if (num == 0)
+	while (n > 0)
 	{
-		_putchar ('0');
+		buffer[index++] = '0' + (n % 10);
+		n /= 10;
+	}
+	while (index > 0)
+	{
+		_putchar(buffer[--index]);
 		count++;
-		return (count);
 	}
-	while (num > 0)
-	{
-		my_digit = num % 10;
-		reversed = reversed * 10 + my_digit;
-		num /= 10;
-	}
-	while (reversed > 0)
-	{
-		digit = reversed % 10;
-		_putchar (digit + '0');
-		count++;
-		reversed /= 10;
-	}
+	if (count > 0 && buffer[0] == '8')
+		count--;
+
 	return (count);
 }
